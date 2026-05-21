@@ -6,8 +6,8 @@ ipcMain.on("close-app", () => {
 function createWindow() {
   const win = new BrowserWindow({
     title: "My little calendar",
-    width: 300,
-    height: 400,
+    width: 400,
+    height: 500,
     resizable: false,
     maximizable: false,
     fullscreenable: false,
