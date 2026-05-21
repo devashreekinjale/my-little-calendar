@@ -1,10 +1,13 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain } = require('electron');
+ipcMain.on("close-app", () => {
+    app.quit();
+});
 
 function createWindow() {
   const win = new BrowserWindow({
     title: "My little calendar",
-    width: 214,
-    height: 228,
+    width: 300,
+    height: 400,
     resizable: false,
     maximizable: false,
     fullscreenable: false,
@@ -12,7 +15,8 @@ function createWindow() {
     transparent: true,
     background: "#00000000",
     webPreferences: {
-      contextIsolation: true
+      nodeIntegration: true,
+      contextIsolation: false
     }
   });
 

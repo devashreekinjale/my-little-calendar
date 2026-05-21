@@ -7,14 +7,41 @@
   </head>
 
   <body>
-    <div class="app">
-        <div class="title">Nasha's Calendar</div>
+    <div id="home-page" class="page">
+      <div class="app">
+        <div class="top-bar">
+          <button id="open-calendar">🗓️</button>
+          <div class="title">Today is </div>
+          <button id="close-btn">✕</button>
+        </div>
         <div id="calendar">
             <div id="day"></div>
             <div id="month"></div>
         </div>
+      </div>
     </div>
 
+    <div id="calendar-page" class="page hidden">
+      <div class="calendar-container">
+        <button id="back-btn">←</button>
+        <div class="calendar-header">
+          <div class="month-navigation">
+            <button id="prev-month"><</button>
+            <h2 id="month-year"></h2>
+            <button id="next-month">></button>
+          </div>
+        </div>
+        <div class="weekdays">
+              <div>Sun</div>
+              <div>Mon</div>
+              <div>Tue</div>
+              <div>Wed</div>
+              <div>Thu</div>
+              <div>Fri</div>
+              <div>Sat</div>
+        </div>
+        <div id="calendar-grid"></div>
+      </div>
     <script src="script.js"></script>
   </body>
 </html>

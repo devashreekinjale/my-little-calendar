@@ -1,70 +1,145 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'Pixeboy';
+    src: url('./assets/fonts/Pixeboy.ttf') format('truetype');
+}
 
 body {
-  margin: 0;
-  width: 100vw;
-  height: 100vh;
-  user-select: none;
-  -webkit-app-region: drag;
-  border-radius: 20px;
-  margin: 0;
-  background: transparent;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    overflow: hidden;
+    user-select: none;
+    background: transparent;
+    -webkit-app-region: drag;
 }
 
+/* ---------- PAGES ---------- */
+
+.page {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ---------- HOME APP ---------- */
+
 .app {
+    position: relative;
+    overflow: visible;  
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 20px;
     gap: 0.5rem;
-    width: 13.375rem;
+    width: 14.375rem;
+    height: 15.375rem;
     padding: 1rem 1.0625rem;
-
-
     background-image: url("assets/outer-frame-bg.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    opacity: 0.8;
+    opacity: 0.9;
 }
+
+/* ---------- BUTTONS ---------- */
 
 button,
 input,
 textarea,
 select {
-  -webkit-app-region: no-drag;
-  cursor: pointer;
+    -webkit-app-region: no-drag;
+    cursor: pointer;
+}
+
+
+
+#close-btn:hover,
+#open-calendar:hover,
+#back-btn:hover {
+    background: rgba(192, 121, 255, 0.7);
+}
+
+/* back button */
+
+.top-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .title {
-
+    flex: 1;
     display: flex;
-    width: 157px;
-    aspect-ratio: 157/27;
-    padding: 0.25rem 0.625rem;
     justify-content: center;
     align-items: center;
-
+    height: 2.2rem;
     border-radius: 6.25rem;
     border: 1px solid #C079FF;
     background: rgba(210, 164, 255, 0.40);
-
-    color: var(--white, #FFF);
-
-    /* text styling */
+    color: white;
     font-family: Pixeboy;
     font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-
 }
 
-#calendar { 
+#close-btn,
+#open-calendar,
+#back-btn {
+    width: 2.2rem;
+    height: 2.2rem;
+    border: 1px solid #C079FF;
+    border-radius: 50%;
+    background: rgba(210, 164, 255, 0.40);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Pixeboy;
+    font-size: 1rem;
+    cursor: pointer;
+    -webkit-app-region: no-drag;
+}
+
+#back-btn {
+
+    width: 32px;
+    height: 32px;
+
+    min-width: 32px;
+    min-height: 32px;
+
+    padding: 0;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    line-height: 1;
+
+    aspect-ratio: 1 / 1;
+}
+/* ---------- MINI CALENDAR ---------- */
+
+#calendar {
     display: flex;
     width: 11.25rem;
     height: 10.0625rem;
@@ -72,46 +147,158 @@ select {
     justify-content: center;
     align-items: center;
     gap: 1rem;
-
     background-image: url("assets/inner-frame-bg.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    }
+}
+
+/* ---------- DAY ---------- */
 
 #day {
-    color: #FFF;
-    text-align: center;
-    -webkit-text-stroke-width: 1.5px;
-    -webkit-text-stroke-color: var(--mid-purple, #B58CD9);
-    font-family: Pixeboy;
-    font-size: 8.5rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.25rem; 
-    letter-spacing: 0.45rem;
-
     display: flex;
     width: 11.25rem;
     height: 4.4375rem;
     flex-direction: column;
     justify-content: center;
-
-}
-
-#month {
-
-    color: #FFF;
+    color: white;
     text-align: center;
     -webkit-text-stroke-width: 1.5px;
     -webkit-text-stroke-color: #B58CD9;
+
+    font-family: Pixeboy;
+    font-size: 8.5rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    letter-spacing: 0.45rem;
+}
+
+/* ---------- MONTH ---------- */
+
+#month {
+    width: 8.125rem;
+    color: white;
+    text-align: center;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: #B58CD9;
+
     font-family: Pixeboy;
     font-size: 2rem;
-    font-style: normal;
     font-weight: 400;
-    line-height: 1.25rem; 
+    line-height: 1.25rem;
     letter-spacing: 0.3rem;
+}
 
-    width: 8.125rem;
+/* ---------- FULL CALENDAR PAGE ---------- */
 
+#calendar-page {
+    background: transparent;
+}
+
+/* ---------- CALENDAR CONTAINER ---------- */
+
+.calendar-container {
+    padding: 1rem;
+    border-radius: 30px;
+    border: 3px solid #C079FF;
+
+    display: flex;
+    width: 20.625rem;
+    height: 22.625rem;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    background: rgba(209, 164, 255, 0.779);
+    color: white;
+    font-family: Pixeboy;
+}
+/* ---------- MONTH TITLE ---------- */
+
+#month-year {
+
+    margin: 0;
+    white-space: nowrap;
+
+    font-family: Pixeboy;
+    font-size: 3rem;
+    color: white;
+    text-align: center;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: #B58CD9;
+    font-weight: 400;
+    line-height: 1.25rem;
+    letter-spacing: 0.15rem;
+}
+
+/* ---------- WEEKDAYS + GRID ---------- */
+
+.weekdays,
+#calendar-grid {
+
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, auto);
+    gap: 3px;
+    text-align: center;
+
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: #B58CD9;
+    letter-spacing: 0.1rem;
+    font-size: 1.25rem;
+    font-weight: 200;
+}
+
+/* ---------- DATE CELLS ---------- */
+
+#calendar-grid div {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border-radius: 50%;
+}
+
+/* ---------- TODAY HIGHLIGHT ---------- */
+
+.today {
+    background: #C079FF;
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.month-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+#prev-month,
+#next-month {
+    border: none;
+    background: transparent;
+    color: white;
+    font-family: Pixeboy;
+    font-size: 1.4rem;
+    font-weight: bold;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin-top: -2px;
+    cursor: pointer;
+    -webkit-app-region: no-drag;
+}
+
+#prev-month:hover,
+#next-month:hover {
+    color: #D2A4FF;
 }
